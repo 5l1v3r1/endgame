@@ -87,3 +87,40 @@ body {
 #action:focus {
   outline: 0;
 }
+
+.message {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 5px;
+  margin: 0;
+}
+
+.message-question {
+  color: black;
+}
+
+.message-question::before {
+  content: 'Adversary: ';
+  font-weight: 600;
+}
+
+.message-response {
+  color: rgba(155, 89, 182, 255);
+}
+
+.message-response::before {
+  content: 'You: ';
+  font-weight: 600;
+}
+
+.message-status {
+  text-align: center;
+}
+
+.message-lost {
+  color: red;
+}
+
+.message-won {
+  color: #65bcd4;
+}
