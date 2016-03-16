@@ -1,0 +1,89 @@
+html, body {
+  margin: 0;
+}
+
+body {
+  background-color: #d5d5d5;
+  font-family: sans-serif;
+}
+
+#content {
+  position: absolute;
+  background-color: white;
+}
+
+@media (min-height: 600px) {
+  #content {
+    height: 550px;
+    top: calc(50% - 275px);
+  }
+}
+
+@media (min-width: 500px) {
+  #content {
+    width: 500px;
+    left: calc(50% - 250px);
+  }
+}
+
+@media (max-height: 600px) and (min-width: 500px) {
+  #content {
+    height: calc(100% - 50px);
+    top: 25px;
+  }
+}
+
+@media (max-height: 600px) and (max-width: 500px) {
+  #content {
+    height: 100%;
+    top: 0;
+  }
+}
+
+@media (max-width: 500px) {
+  #content {
+    width: 100%;
+  }
+}
+
+#challenge-picker {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 50px;
+  width: 100%;
+
+  text-align: center;
+  line-height: 50px;
+}
+
+#log {
+  position: absolute;
+  top: 50px;
+  left: 0px;
+  height: calc(100% - 100px);
+  width: 100%;
+
+  background-color: #f0f0f0;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+#action {
+  position: absolute;
+  bottom: 7px;
+  left: calc(50% - 50px);
+  height: 36px;
+  width: 100px;
+
+  border: none;
+  background-color: #65bcd4;
+  color: white;
+  font-family: sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+}
+
+#action:focus {
+  outline: 0;
+}
