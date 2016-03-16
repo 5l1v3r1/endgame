@@ -98,7 +98,7 @@ button:hover {
 .message {
   box-sizing: border-box;
   width: 100%;
-  padding: 5px;
+  padding: 5px 10px;
   margin: 0;
 }
 
@@ -121,6 +121,7 @@ button:hover {
 }
 
 .message-status {
+  margin-top: 10px;
   text-align: center;
 }
 
@@ -128,8 +129,18 @@ button:hover {
   color: red;
 }
 
+.message-lost::before {
+  content: 'You lose. ';
+  font-weight: 600;
+}
+
 .message-won {
   color: #65bcd4;
+}
+
+.message-won::before {
+  content: 'You win. ';
+  font-weight: 600;
 }
 
 #picker-shielding {

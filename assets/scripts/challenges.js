@@ -43,7 +43,7 @@
           question: "Hey man, what's up?",
           responses: ["Not much, just chillen.",
             "Just working on a small coding project.",
-            "Doing homework; I have a boatload of it (lie)."],
+            "Doing homework; I have a boatload of it."],
           branches: ["inquire", "inquire", "movie"]
         },
         "inquire": {
