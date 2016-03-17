@@ -23,7 +23,7 @@
 
   Log.prototype._addElement = function($e) {
     this._$element.append($e);
-    this._$element.scrollTop(this._$element.innerHeight());
+    this._$element.scrollTop(this._$element[0].scrollHeight);
   };
 
   window.app.Log = Log;
