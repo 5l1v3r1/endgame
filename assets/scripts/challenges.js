@@ -84,7 +84,7 @@
           loss: false
         },
         "problem": {
-          question: "I'm supposed to find the integral of x^2 / sqrt(x^2+4).",
+          question: "I'm supposed to find the integral of x^2 / sqrt(x^2+4). Any thoughts?",
           responses: ["Just did it. It's (1/2)*x*sqrt(x^2 + 4) - 2*sinh^-1(x/2).",
             "Hmm idk how to do that", "Looks hard."],
           branches: ["workedhard", "thoughts", "thoughts"]
@@ -160,7 +160,7 @@
           branches: ["youcanfigure", "youcanfigure", "question"]
         },
         "youcanfigure": {
-          question: "Well I wrote some Python and it's not working. Can you take a look, anyway?",
+          question: "Well I wrote some Python and it's not working. Can you take a look, anyway? You always say all programming languages are pretty similar.",
           responses: ["Sorry, I'm really busy right now. I gotta go.",
             "Alright, I guess I'll have a look.",
             "Just ask somebody else."],
