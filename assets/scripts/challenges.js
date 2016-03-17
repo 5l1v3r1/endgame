@@ -4,7 +4,8 @@
     this._name = name;
     this._data = data;
     this._state = 'start';
-    // TODO: validate the data here to ensure that no states are missing.
+
+    this._validate();
   }
 
   Challenge.prototype.name = function() {
@@ -33,6 +34,28 @@
 
   Challenge.prototype.lost = function() {
     return this._data[this._state].loss;
+  };
+
+  Challenge.prototype._validate = function() {
+    var states = Object.keys(this._data);
+    var usedStates = {};
+    for (var i = 0, len = states.length; i < len; ++i) {
+      var branches = this._data[states[i]].branches;
+      if (!branches) {
+        continue;
+      }
+      for (var j = 0, len1 = branches.length; j < len1; ++j) {
+        if (!this._data.hasOwnProperty(branches[j])) {
+          throw new Error('unknown branch state: ' + branches[j]);
+        }
+        usedStates[branches[j]] = true;
+      }
+    }
+    for (var i = 0, len = states.length; i < len; ++i) {
+      if (!usedStates[states[i]] && states[i] !== 'start') {
+        throw new Error('unreachable state: ' + states[i]);
+      }
+    }
   };
 
   var challengeData = [
