@@ -24,6 +24,9 @@
   ReplyPicker.prototype.show = function() {
     this._$element.addClass('showing');
     this._$shielding.addClass('showing');
+
+    var height = this._$element.height();
+    this._$element.css({top: 'calc(50% - ' + Math.round(height/2) + 'px)'});
   };
 
   ReplyPicker.prototype._choseOption = function(idx) {
