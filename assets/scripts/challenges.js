@@ -131,7 +131,7 @@
       }
     },
     {
-      name: "Code help",
+      name: "Code Help",
       states: {
         "start": {
           question: "Yo dawg, it's been a while. How's it been?",
