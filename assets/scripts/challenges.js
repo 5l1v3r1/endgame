@@ -129,6 +129,90 @@
           loss: false
         }
       }
+    },
+    {
+      name: "Code help",
+      states: {
+        "start": {
+          question: "Yo dawg, it's been a while. How's it been?",
+          responses: ["Pretty good.", "Alright", "Good, you?"],
+          branches: ["ahgood", "ahgood", "notbad"]
+        },
+        "ahgood": {
+          question: "Ah good. What kind of stuff have you been working on lately?",
+          responses: ["Just some small things, nothing major",
+            "Mostly learning a bunch of weak AI algorithms, that kinda thing.",
+            "Lots of school work and some web development on the side."],
+          branches: ["inquire", "inquire", "inquire"]
+        },
+        "notbad": {
+          question: "Pretty good. Hey, do you know any Python?",
+          responses: ["Not really, I've only used it a few times",
+            "Nah",
+            "Yeah, I'm decent, but I prefer pretty much any other language."],
+          branches: ["youcanfigure", "youcanfigure", "question"]
+        },
+        "inquire": {
+          question: "Ah, that's cool. Hey, do you know any Python?",
+          responses: ["Not really, I've only used it a few times",
+            "Nah",
+            "Yeah, I'm decent, but I prefer pretty much any other language."],
+          branches: ["youcanfigure", "youcanfigure", "question"]
+        },
+        "youcanfigure": {
+          question: "Well I wrote some Python and it's not working. Can you take a look, anyway?",
+          responses: ["Sorry, I'm really busy right now. I gotta go.",
+            "Alright, I guess I'll have a look.",
+            "Just ask somebody else."],
+          branches: ["ttyl", "havelook", "nobodyelse"]
+        },
+        "question": {
+          question: "Awesome, cause I wrote some Python and it's not working. Can you take a look?",
+          responses: ["Sorry, I'm really busy right now. I gotta go.",
+            "Alright, I guess I'll have a look.",
+            "Just ask somebody else."],
+          branches: ["ttyl", "havelook", "nobodyelse"]
+        },
+        "ttyl": {
+          question: "Oh, okay. I'll ttyl. Maybe later you can help.",
+          status: "You got out of it this time, although he/she will probably ask again.",
+          loss: false
+        },
+        "nobodyelse": {
+          question: "It'll only take a sec, and I don't know anybody else who can help. Please?",
+          responses: ["Okay, fine.", "Sorry, actually I just realized I gotta go. Talk to you later."],
+          branches: ["havelook", "ttyl"]
+        },
+        "havelook": {
+          question: "Okay, the code is at http://pastie.org/10763207. Can you tell me what's wrong?",
+          responses: ["Your factoring logic is all wrong. You gotta rewrite it.",
+            "Hmm idk it looks fine.",
+            "Here, I just fixed it: http://pastie.org/10763208. Your factoring code was broken."],
+          branches: ["factorhelp", "skype", "wastetime"]
+        },
+        "wastetime": {
+          status: "You just wasted a bunch of time rewriting this guy's code.",
+          loss: true
+        },
+        "factorhelp": {
+          question: "Hmm, how would you fix it? I'm kinda lost with this math stuff. I looked it up but I just don't understand.",
+          responses: ["Here, I just rewrote it: http://pastie.org/10763208",
+            "Yeah idk how to do it either.",
+            "Sorry, I'd help but I just remembered I have a dentist appointment. Ttyl."],
+          branches: ["wastetime", "skype", "ttyl"]
+        },
+        "skype": {
+          question: "Here, let's skype. If we both think about this for long enough, we'll get it.",
+          responses: ["Sorry, I gotta go in like five minutes, so I don't have time.",
+            "Alright, lemme sign on real quick.",
+            "Wait, I figured it out. Here's the fixed version: http://pastie.org/10763208"],
+          branches: ["ttyl", "skypetime", "wastetime"]
+        },
+        "skypetime": {
+          status: "You will now spend the next half hour on a boring skype call walking this guy through his own code.",
+          loss: true
+        }
+      }
     }
   ];
 
