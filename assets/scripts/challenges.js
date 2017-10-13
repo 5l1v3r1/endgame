@@ -213,6 +213,91 @@
           loss: true
         }
       }
+    },
+    {
+      name: "Stats Homework",
+      states: {
+        "start": {
+          question: "Hey man, I know it's late, but I just gotta finish up this problem set. Can you help me wrap my head around this question?",
+          responses: ["Sorry dude, I'm in a video chat right now",
+            "Sure, lay it on me",
+            "Not now dude, I'm gonna go to bed soon."],
+          branches: ["nevervc", "givequestion", "timezone"]
+        },
+        "nevervc": {
+          question: "Damn dude, we never VC anymore. Oh well, I won't distract you.",
+          status: "You don't have to help him out this time, but now you're probably going to have to help him over VC later.",
+          loss: false
+        },
+        "givequestion": {
+          question: "\"A municipal election has four candidates: Abe Adams, Betty Bryant, Chuck Cameron, and Donna Davis. If 5000 citizens cast votes, how many different ways could the votes be distributed among the candidates?\"",
+          responses: ["Hmm, try googling 'Partition of a set'",
+            "Could you just do (5000-1 choose 5)?",
+            "No idea how to do that off the top of my head."],
+          branches: ["notpartition", "thatswrong", "noidea"]
+        },
+        "timezone": {
+          question: "But bro, you're in a different timezone, it's only like 8PM there.",
+          responses: ["Yeah but I need to catch up on some sleep. Peace out.",
+            "Fine, let's have a look."],
+          branches: ["bedlie", "givequestion"]
+        },
+        "bedlie": {
+          question: "Alright, ttyl I guess.",
+          status: "You weren't actually going to bed (who goes to bed at 8PM!). Now you have to stop using your chat program to make it look like you went to bed.",
+          loss: true
+        },
+        "notpartition": {
+          question: "Nah I don't think that's it. We never talked about this in class.",
+          responses: ["Damn, then idk.",
+            "Oh wait, I think maybe it's just (5000-1 choose 5)."],
+          branches: ["noidea", "thatswrong"]
+        },
+        "thatswrong": {
+          question: "Nah that gives 25 trillion which is way too big.",
+          responses: ["Damn, then idk.",
+            "Actually it's not obvious that that's too big."],
+          branches: ["noidea1", "noidea1"]
+        },
+        "noidea": {
+          question: "Wait, is this the (n+k-1 choose n) thing?",
+          responses: ["Hmm idk I actually think it's (5000-1 choose 5)?",
+            "No idea man."],
+          branches: ["thatswrong", "noidea1"]
+        },
+        "noidea1": {
+          question: "Wait, I found http://www.math.northwestern.edu/~mlerma/courses/cs310-05s/notes/dm-gcomb. Look at 5.3.2",
+          responses: ["Bro I really don't feel like doing math homework right now.",
+            "Hmm alright, I read through it."],
+          branches: ["isnthomework", "sucker"]
+        },
+        "isnthomework": {
+          question: "This isn't homework bro, it's just a practice problem.",
+          responses: ["Sounds like homework to me bro.",
+            "Whatever it is, I don't want to do it right now."],
+          branches: ["isnthomework2", "thoughtfriends"]
+        },
+        "isnthomework2": {
+          question: "Come on man, I need help with this or I'm gonna fail this assignment!",
+          responses: ["Nah man, I'm too tired. You shouldn't have put it off to the last minute.",
+            "I honestly want you to fail.",
+            "Fine, I did the problem and emailed you a scan of the solution."],
+          branches: ["thoughtfriends", "thoughtfriends", "sucker2"]
+        },
+        "thoughtfriends": {
+          question: "Damn dude, all I wanted was a little help from a friend. Guess you're not as good a friend as I thought.",
+          status: "You got out of doing some homework, but you lost a friend.",
+          loss: true
+        },
+        "sucker": {
+          status: "You just read a huge PDF for this guy. What a waste of time.",
+          loss: true
+        },
+        "sucker2": {
+          status: "You just did some guy's homework for him.",
+          loss: true
+        }
+      }
     }
   ];
 
